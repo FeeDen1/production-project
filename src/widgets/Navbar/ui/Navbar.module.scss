@@ -1,0 +1,21 @@
+.Navbar {
+  width: 100%;
+  height: var(--navbar-height);
+  display: flex;
+  gap: 15px;
+  justify-content: space-between;
+  background: var(--bg-navbar-color);
+  align-items: center;
+  padding: 0 10px;
+}
+
+.links {
+  display: flex;
+  gap: 15px;
+}
+
+.siteName {
+
+}
+
+
