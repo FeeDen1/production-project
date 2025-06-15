@@ -10,12 +10,19 @@
 }
 
 .links {
+  align-self: center;
   display: flex;
   gap: 15px;
 }
 
-.siteName {
-
+.container {
+  display: flex;
+  gap: 25px;
 }
 
+.switchers {
+  display: flex;
+  gap: 15px;
+  align-self: center;
+}
 
