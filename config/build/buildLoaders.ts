@@ -1,5 +1,4 @@
 import webpack from "webpack";
-import {type} from "node:os";
 import MiniCssExtractPlugin from "mini-css-extract-plugin";
 import {BuildOptions} from "./types/config";
 import ReactRefreshTypeScript from 'react-refresh-typescript'
@@ -23,7 +22,7 @@ export function buildLoaders({isDev}: BuildOptions): webpack.RuleSetRule[] {
                         'i18next-extract',
                         {locales: ['ru', 'en'], keyAsDefaultValue: true}
                     ]
-                    ]
+                ]
             }
         }
     }

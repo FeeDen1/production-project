@@ -11,13 +11,13 @@ const AppRouter = () => {
                         key={path}
                         path={path}
                         element={
-                        <div className="page-wrapper">
-                            {element}
-                        </div>
+                            <div className="page-wrapper">
+                                {element}
+                            </div>
 
-                    }
+                        }
                     />
-            ))}
+                ))}
             </Routes>
         </Suspense>
     );

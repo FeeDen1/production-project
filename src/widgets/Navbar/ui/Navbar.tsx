@@ -1,5 +1,4 @@
 import React from 'react';
-import {Link} from "react-router-dom";
 import {classNames} from "shared/lib/classNames/classNames";
 import cls from './Navbar.module.scss';
 import {AppLink} from "shared/ui/AppLink/AppLink";
