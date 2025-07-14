@@ -11,6 +11,7 @@ export default [
   pluginJs.configs.recommended,
   ...tseslint.configs.recommended,
   ...fixupConfigRules(pluginReactConfig),
+    ...fixupConfigRules(plugini18next),
   {
     rules: {
       'react/jsx-indent': [2, 4],
