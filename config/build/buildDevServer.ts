@@ -6,5 +6,9 @@ export function buildDevServer(options: BuildOptions):DevServerConfiguration  {
         port: options.port,
         open: true,
         historyApiFallback: true,
+        client: {
+            overlay: false, // Отключаем показ ошибок поверх страницы
+        }
+
     }
 }
