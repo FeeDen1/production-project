@@ -32,6 +32,12 @@ const config: Config = {
         "\\\\node_modules\\\\"
     ],
 
+    moduleNameMapper: {
+        '\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$':
+            '<rootDir>/__mocks__/fileMock.js',
+        '\\.(s?css)$': 'identity-obj-proxy',
+    },
+
     // Indicates which provider should be used to instrument code for coverage
     // coverageProvider: "babel",
 
@@ -75,6 +81,9 @@ const config: Config = {
     // An array of directory names to be searched recursively up from the requiring module's location
     moduleDirectories: [
         "node_modules"
+    ],
+    modulePaths: [
+        "<rootDir>src",
     ],
 
     // An array of file extensions your modules use
