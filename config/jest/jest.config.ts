@@ -9,6 +9,7 @@ const config: Config = {
     // All imported modules in your tests should be mocked automatically
     // automock: false,
 
+
     // Stop running tests after `n` failures
     // bail: 0,
 
@@ -33,8 +34,14 @@ const config: Config = {
     ],
 
     moduleNameMapper: {
-        '\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$':
+        // svg -> отдельный мок (React компонент)
+        '\\.svg$': '<rootDir>/config/jest/__mocks__/svgMock.js',
+
+        // остальные файлы (png, mp3 и т.д.)
+        '\\.(jpg|jpeg|png|gif|eot|otf|webp|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$':
             '<rootDir>/__mocks__/fileMock.js',
+
+        // модули стилей
         '\\.(s?css)$': 'identity-obj-proxy',
     },
 
