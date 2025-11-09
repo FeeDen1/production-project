@@ -32,6 +32,9 @@ export default [
       'import/no-extraneous-dependencies': 'off',
       'no-underscore-dangle': 'off',
       'react/no-deprecated': 'off',
+      'no-require-imports': 'off',
+      "@typescript-eslint/no-require-imports": "off",
+      "no-undef": 'off',
   },
   },
   {
