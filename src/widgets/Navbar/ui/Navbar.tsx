@@ -7,6 +7,7 @@ import {useTranslation} from "react-i18next";
 import {LangSwitcher} from "features/LangSwitcher";
 import {Button, ButtonTheme} from "shared/ui/Button/Button";
 import {Modal} from "shared/ui/Modal/Modal";
+import {LoginModal} from "features/AuthByUsername";
 
 interface NavbarProps {
     className?: string
@@ -16,9 +17,13 @@ export const Navbar = ({className}: NavbarProps) => {
     const {t} = useTranslation()
     const [isAuthModal, setIsAuthModal] = useState(false);
 
-    const onToggleModal = useCallback(() => {
-        setIsAuthModal((prev) => !prev)
-    }, [])
+    const onCloseModal = useCallback(() => {
+        setIsAuthModal(false);
+    }, []);
+
+    const onShowModal = useCallback(() => {
+        setIsAuthModal(true);
+    }, []);
     return (
         <div className={classNames(cls.Navbar, {}, [className])}>
             <div className={cls.siteName}>
@@ -34,7 +39,7 @@ export const Navbar = ({className}: NavbarProps) => {
                     </AppLink>
                 </div>
                 <div className={cls.switchers}>
-                    <Button theme={ButtonTheme.CLEAR} className={cls.links} onClick={onToggleModal}>
+                    <Button theme={ButtonTheme.CLEAR} className={cls.links} onClick={onShowModal}>
                         Войти
                     </Button>
                     <LangSwitcher/>
@@ -42,7 +47,7 @@ export const Navbar = ({className}: NavbarProps) => {
                 </div>
 
             </div>
-            <Modal isOpen={isAuthModal} onClose={onToggleModal}>ППАПАВПВАПВАПВАПВПВпв</Modal>
+            <LoginModal isOpen={isAuthModal} onClose={onCloseModal}></LoginModal>
 
         </div>
     );

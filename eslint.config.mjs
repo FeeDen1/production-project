@@ -35,6 +35,7 @@ export default [
       'no-require-imports': 'off',
       "@typescript-eslint/no-require-imports": "off",
       "no-undef": 'off',
+      'react/display-name': 'off'
   },
   },
   {

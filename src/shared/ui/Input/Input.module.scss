@@ -1,0 +1,19 @@
+.InputWrapper {
+  display: flex;
+}
+
+.label {
+  margin-right: 5px;
+  width: 100%;
+}
+
+.input {
+  background: transparent;
+  width: 100%;
+  outline: none;
+  color: var(--primary-color);
+
+  &_focus {
+    outline: none;
+  }
+}
