@@ -4,6 +4,22 @@ const path = require('path');
 
 const server = jsonServer.create();
 
+const cors = require('cors');
+
+server.use(
+    cors({
+        origin: true,
+        credentials: true,
+        preflightContinue: false,
+        methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+    }),
+);
+server.options('*', cors());
+
+
+server.use(jsonServer.defaults());
+server.use(jsonServer.bodyParser);
+
 const router = jsonServer.router(path.resolve(__dirname, 'db.json'))
 
 server.use(async(req,res,next) => {
@@ -12,16 +28,6 @@ server.use(async(req,res,next) => {
     });
     next();
 });
-
-server.use((req,res,next) => {
-    if(!req.headers.authorization) {
-        return res.status(403).json({message: 'AUTH ERROR'});
-    }
-    next();
-});
-
-server.use(jsonServer.defaults());
-server.use(router);
 
 server.post('/login', (req,res) => {
     const {username, password} = req.body;
@@ -38,6 +44,15 @@ server.post('/login', (req,res) => {
 
     return res.status(403).json({ message: 'AUTH ERROR' })
 });
+
+server.use((req,res,next) => {
+    if(!req.headers.authorization) {
+        return res.status(403).json({message: 'AUTH ERROR'});
+    }
+    next();
+});
+
+server.use(router);
 
 server.listen(8000, () => {
     console.log('server is running on 8000 port');
